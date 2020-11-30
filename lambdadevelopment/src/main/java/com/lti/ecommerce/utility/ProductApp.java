@@ -16,7 +16,7 @@ public class ProductApp {
 		 * +","+product.getDop()+","+product.getCost()); }
 		 */
 		//lambda approach
-		//productService.getProducts().stream().forEach(System.out::println);
+		productService.getProducts().stream().forEach(System.out::println);
 		
 		//filter chain of operations
 		productService.getProducts().stream()
