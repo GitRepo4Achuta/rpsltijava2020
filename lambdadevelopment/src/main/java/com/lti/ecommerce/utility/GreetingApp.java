@@ -1,6 +1,6 @@
-package com.lti.networking.utility;
+package com.lti.ecommerce.utility;
 
-import com.lti.networking.Greeting;
+import com.lti.ecommerce.facades.Greeting;
 
 public class GreetingApp {
 

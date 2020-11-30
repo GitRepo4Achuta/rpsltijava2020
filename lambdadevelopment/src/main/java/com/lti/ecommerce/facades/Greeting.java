@@ -1,4 +1,4 @@
-package com.lti.networking;
+package com.lti.ecommerce.facades;
 
 @FunctionalInterface
 public interface Greeting {
