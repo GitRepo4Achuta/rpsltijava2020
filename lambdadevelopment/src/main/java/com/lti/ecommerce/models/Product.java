@@ -14,6 +14,8 @@ public class Product {
 	private String name;
 	private LocalDate dop;
 	private long cost;
+	private String brand;
+	private int starRating;
 
 	
 }
