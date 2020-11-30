@@ -21,7 +21,7 @@ public class ProductService {
 			product=new Product();
 			product.setProductId(new Random().nextInt(10000));
 			product.setName("P"+new Random().nextInt(10000));					
-			product.setDop(LocalDate.of(2000+new Random().nextInt(20), new Random().nextInt(10)+1, new Random().nextInt(29)+1));
+			product.setDop(LocalDate.of(2000+new Random().nextInt(20), new Random().nextInt(10)+1, new Random().nextInt(27)+1));
 			product.setCost(new Random().nextInt(10000));
 			products.add(product);			
 		}

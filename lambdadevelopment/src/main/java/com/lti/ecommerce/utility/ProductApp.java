@@ -16,12 +16,25 @@ public class ProductApp {
 		 * +","+product.getDop()+","+product.getCost()); }
 		 */
 		//lambda approach
-		productService.getProducts().stream().forEach(System.out::println);
+		//productService.getProducts().stream().forEach(System.out::println);
 		
 		//filter chain of operations
+		//productService.getProducts().stream()
+		//.filter(p->p.getCost()>5000)
+		//.forEach(System.out::println);
+		
+		//sorting 
+		
 		productService.getProducts().stream()
-		.filter(p->p.getCost()>5000)
+		.sorted((p1,p2)->p1.getDop().compareTo(p2.getDop()))
+		//.map(p->p.getName().toUpperCase())
 		.forEach(System.out::println);
+				
+		
+		
+		
+		
+		
 		
 	}
 
