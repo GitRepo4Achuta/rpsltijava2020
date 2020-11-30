@@ -1,5 +1,6 @@
 package com.lti.ecommerce.utility;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -72,9 +73,13 @@ public class ProductApp {
 	
      //grouping
 	
-	Map<Integer,List<Product>> groupedProducts=productService.getProductList().stream()
+	Map<Integer,List<Product>> groupedProducts=productService.getProductList().parallelStream()
 		.collect(Collectors.groupingBy(p->p.getStarRating()));
 	
+	 groupedProducts.forEach((starRating, e) -> 
+	 System.out.format("StarRating %s: %s\n", starRating, e));
+
+	/*
 	Set productSet=groupedProducts.entrySet();
 	
 	Iterator iterator=productSet.iterator();
@@ -88,9 +93,22 @@ public class ProductApp {
 		productEntries.getValue().stream().forEach(System.out::println);
 		System.out.println("========================================");
 	}
+	*/
 	
-	
-	
+	//All Match
+	 List<String> traineeNames=new ArrayList<String>();
+	 traineeNames.add("Satya");
+	 traineeNames.add("Roshan");
+	 traineeNames.add("Anita");
+	 traineeNames.add("Krishnaveni");
+	 traineeNames.add("Kamala");
+	 
+	System.out.println(traineeNames.stream().allMatch(n->n.startsWith("K")));
+	System.out.println(traineeNames.stream().noneMatch(n->n.startsWith("Z")));
+	 
+	 
+	 
+	 
 	
 		
 	
