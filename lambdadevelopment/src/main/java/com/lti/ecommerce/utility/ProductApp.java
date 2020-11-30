@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.lti.ecommerce.models.Product;
@@ -106,13 +107,19 @@ public class ProductApp {
 	System.out.println(traineeNames.stream().allMatch(n->n.startsWith("K")));
 	System.out.println(traineeNames.stream().noneMatch(n->n.startsWith("Z")));
 	 
+	 //Optional 
+	
+	Optional<String> filteredTraineeNames=traineeNames.stream().filter(t->t.startsWith("K"))
+			.findFirst();
 	 
-	 
-	 
+	
+	 System.out.println(filteredTraineeNames.orElse("No Matching Name Found"));
 	
 		
-	
+	 Optional<Product> filteredProducts =productService.getProductList().stream()
+			 .filter(p->p.getCost()>1000).findFirst();
 
+	 System.out.println(filteredProducts.isPresent());
 }
 	
 }

@@ -1,11 +1,17 @@
 package com.lti.ecommerce.utility;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Random;
 import java.util.function.BiFunction;
+import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
+import com.lti.ecommerce.facades.DataGenerator;
+import com.lti.ecommerce.facades.TriFunction;
 import com.lti.ecommerce.models.Product;
+import com.lti.ecommerce.services.ProductService;
 
 public class BuiltinFunctionalInterface {
 
@@ -37,6 +43,22 @@ public class BuiltinFunctionalInterface {
         System.out.println(productCompare.apply(new Product(12,"Pickle",
 				LocalDate.of(2020, 1, 24),200,"Aachi",4),(new Product(12,"Pickle",
 						LocalDate.of(2020, 1, 24),400,"PKV",4))));	
+        
+                
+        TriFunction<Integer,Integer,Integer, Double> meanCost=(c1,c2,c3)->(c1+c2+c3)/3.0;
+        System.out.println(meanCost.apply(new Random().nextInt(10000),new Random().nextInt(10000)
+        		, new Random().nextInt(10000)));
+        
+        
+        Consumer<List<Product>> showProducts=(products)->{
+        	products.stream().forEach(System.out::println);
+        };
+        
+        showProducts.accept(new ProductService().getProductList());
+        
+        Supplier<Integer> tokenGenerator=DataGenerator::getToken;
+        System.out.println(tokenGenerator.get());
+        
 	}
 
 }
