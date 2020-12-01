@@ -1,0 +1,64 @@
+h1
+{
+	text-align: center;
+	font-size: x-large;
+	font-style: bold;
+	color: dodgerblue;
+}
+#main
+{
+	margin:10%;
+	margin-bottom: 0%;
+}
+#screeen
+{
+	width:80%
+	margin:33%;
+}
+#screen img
+{
+	width:50%;
+	margin-left: 20%;
+}
+.layout-row {
+    
+    background-color:black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+.button
+{
+	color:white;
+	background-color: green;
+	padding: 25px;
+	
+}
+
+
+
+#confirm .confirmButton
+{
+	color:white;
+	background-color: blue;
+	font-size:large;
+	padding: 25px;
+    margin-left: 45%;
+    margin-top: 2%;
+     	
+	
+	
+}
+
+
+#passage
+{
+	display:inline-block;
+	background-color: yellow;
+	border: 2px solid blue;
+	padding: 35px;
+
+}

@@ -1,0 +1,29 @@
+#login
+{
+	margin-top:5%; 
+	width:20%;	
+	float:right;
+
+}
+
+#login input
+
+{
+	width:60%;
+	margin-left: 20%;
+	margin-bottom: 5%;
+}
+
+#login fieldset legend
+{
+	text-align: center;
+	color:blue;
+}
+
+#login button
+{
+	width:40%;
+	margin-left: 30%;
+	background-color: blue;
+	color:white;
+}

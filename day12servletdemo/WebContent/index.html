@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link type="text/css" rel="stylesheet"
+          href="./styles/index.css"/>
+    <script type="text/javascript"
+            src="./scripts/index.js">
+
+    </script>
+    </head>
+    <body >
+    <section>
+      <header class="header-menu">
+          <figure id="fleft">
+              <img src="./resources/images/logo.png"/>
+          </figure>
+          <h1 class="multicolortext">Shoppers Den</h1>
+          <figure id="fright">
+              <img src="./resources/images/shopper.jpg"/>
+          </figure>
+      </header>
+      <section class="content-menu">
+      <aside>
+          <button>Books</button>
+          <button>Gifts</button>
+          <button>Clothing</button>
+          <button>Sports</button>
+      </aside>
+      <nav>
+          <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Admin</a></li>
+              <li><a href="#">My Accounts</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Help</a></li>
+          </ul>
+      </nav>
+      </section>
+    <article id="content">
+       <div>
+        <form id="regForm" method="post" action="RegistrationController">
+         <fieldset>
+          <legend>Registration?<a href="login.jsp">Login</a></legend>
+           <input type="text" name="firstName" required placeholder="First Name"  />
+           <input type="text" name="lastName"  required  placeholder="Last Name"/>
+           <input type="date" name="dob" required placeholder="DOB" />
+           <input type="text" name="countryName" list="countryList"
+                  placeholder="Country Name">
+           <button>Submit</button>
+           </fieldset>
+        </form>
+       </div>
+
+    </article>
+    <footer class="header-menu">
+        <ul>
+            <li><a href="#">Regulatory Disclosures</a></li>
+            <li><a href="#">Hyperlink Policy</a></li>
+            <li><a href="#">Privacy Statement</a></li>
+            <li><a href="#">Site Term</a></li>
+            <li><a href="#">Site Map</a></li>
+        </ul>
+        <h6>&copy; Copyright 2020. The Honggkongi and Shangai Banking
+            Corporation Limited, India (HSBCC India).
+            Incorporated in Hongg Kongi SAR with limited liability.
+            All rights reserved.</h6>
+    </footer> 
+    </section>
+    <datalist id="countryList">
+
+    </datalist>
+ 
+    </body>
+</html>
