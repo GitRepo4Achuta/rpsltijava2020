@@ -20,6 +20,7 @@ import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
@@ -28,18 +29,22 @@ import lombok.Data;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "Product_Seq")
-    @SequenceGenerator(name = "Product_Seq",sequenceName = "INVENTORY_PRODUCT_SEQ",allocationSize = 1)
+    @SequenceGenerator(name = "Product_Seq",sequenceName = "INVENTORY_PRODUCT_SEQ",
+    allocationSize = 1)
     @Column(name="Product_Id")
 	private long productId;
+	@ApiModelProperty(example = "TV")
     @Column(name="Product_Name",nullable = false,length = 100)
 	private String productName;
+	@ApiModelProperty(example = "2020-05-14")
     @DateTimeFormat(iso = ISO.DATE)
     @Column(name="Product_DOP")
 	private LocalDate dop;
+	@ApiModelProperty(example = "30000")
     @Column(name="Product_Cost")
 	private long cost;	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(foreignKey = @ForeignKey(name = "Category_Id"), name = "Category_Id")
+	@JoinColumn(foreignKey = @ForeignKey(name = "Category_Id"), name = "categoryId")
 	@JsonIgnore
 	private Category category;
 

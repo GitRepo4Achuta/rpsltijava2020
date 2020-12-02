@@ -14,6 +14,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 @Data
 @Entity
@@ -21,9 +23,11 @@ import lombok.Data;
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "Category_Seq")
-	@SequenceGenerator(name = "Category_Seq",sequenceName = "INVENTORY_CATEGORY_SEQ",allocationSize = 1)
+	@SequenceGenerator(name = "Category_Seq",sequenceName = "INVENTORY_CATEGORY_SEQ",
+	allocationSize = 1)
 	@Column(name="Category_Id")
 	private long categoryId;
+	@ApiModelProperty(example = "Electronics")
 	@Column(name="Category_Name",nullable = false,length = 100)
 	private String name;   
 	@OneToMany(mappedBy ="category",
