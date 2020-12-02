@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -100,6 +101,20 @@ public class CategoryController {
 		}
 	}
 	
-	
+	//updating categories
+		@PutMapping("/categories")
+		@CrossOrigin("*") //cors issue
+		public ResponseEntity<?> updateCategory(@RequestBody Category category)
+		{
+			
+			Category responseObj=categoryService.editCategory(category);
+			if(responseObj!=null)
+			   return ResponseEntity.status(HttpStatus.ACCEPTED).body(responseObj);
+			else
+			{
+				  return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+						  .body(new ErrorResponse("record not updated"));
+			}
+		}
 
 }
