@@ -16,6 +16,12 @@ public class CategoryService {
 	//insert
 	public Category addCategory(Category category)
 	{
+		if( category.getProductList().size() > 0 )
+        {
+			 category.getProductList().stream().forEach( product -> {
+                product.setCategory(category);
+            } );
+        }
 		return categoryRepo.save(category);
 	}
 	//update

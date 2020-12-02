@@ -44,7 +44,7 @@ public class Product {
     @Column(name="Product_Cost")
 	private long cost;	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(foreignKey = @ForeignKey(name = "Category_Id"), name = "categoryId")
+	@JoinColumn(foreignKey = @ForeignKey(name = "Category_Id"), name = "Category_Id")
 	@JsonIgnore
 	private Category category;
 

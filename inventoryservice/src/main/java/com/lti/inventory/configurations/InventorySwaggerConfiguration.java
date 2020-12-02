@@ -1,6 +1,5 @@
 package com.lti.inventory.configurations;
 
-
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -30,13 +29,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 public class InventorySwaggerConfiguration {
 	 public static final String AUTHORIZATION_HEADER = "Authorization";
 	 public static final String DEFAULT_INCLUDE_PATTERN = "/api/.*";
+	 
     @Bean
-    public Docket apiDocket() {
+    public Docket api10Docket() {
         return new Docket(DocumentationType.SWAGGER_2)
+        		.groupName("categories-api-1.0")
                 .select()
                 .apis(RequestHandlerSelectors
                         .basePackage("com.lti.inventory"))
-                .paths(PathSelectors.any())
+                .paths(PathSelectors.regex("/categories/v1.0.*"))
                 .build()
                 .apiInfo(getApiInfo())
                 .forCodeGeneration(true)
@@ -50,18 +51,59 @@ public class InventorySwaggerConfiguration {
                 .securitySchemes(Lists.newArrayList(apiKey()))
                 .useDefaultResponseMessages(false);
     }
-
+    @Bean
+    public Docket ap11Docket() {
+        return new Docket(DocumentationType.SWAGGER_2)
+        		.groupName("categories-api-1.1")
+                .select()
+                .apis(RequestHandlerSelectors
+                        .basePackage("com.lti.inventory"))
+                .paths(PathSelectors.regex("/categories/v1.1.*"))
+                .build()
+                .apiInfo(getApiInfo())
+                .forCodeGeneration(true)
+                .genericModelSubstitutes(ResponseEntity.class)
+                .ignoredParameterTypes(Pageable.class)
+                .ignoredParameterTypes(java.sql.Date.class)
+                .directModelSubstitute(java.time.LocalDate.class, java.sql.Date.class)
+                .directModelSubstitute(java.time.ZonedDateTime.class, Date.class)
+                .directModelSubstitute(java.time.LocalDateTime.class, Date.class)
+                .securityContexts(Lists.newArrayList(securityContext()))
+                .securitySchemes(Lists.newArrayList(apiKey()))
+                .useDefaultResponseMessages(false);
+    }
+    @Bean
+    public Docket apiv2Docket() {
+        return new Docket(DocumentationType.SWAGGER_2)
+        		.groupName("categories-api-2.0")
+                .select()
+                .apis(RequestHandlerSelectors
+                        .basePackage("com.lti.inventory"))
+                .paths(PathSelectors.regex("/categories/v2.0.*"))
+                .build()
+                .apiInfo(getApiInfo())
+                .forCodeGeneration(true)
+                .genericModelSubstitutes(ResponseEntity.class)
+                .ignoredParameterTypes(Pageable.class)
+                .ignoredParameterTypes(java.sql.Date.class)
+                .directModelSubstitute(java.time.LocalDate.class, java.sql.Date.class)
+                .directModelSubstitute(java.time.ZonedDateTime.class, Date.class)
+                .directModelSubstitute(java.time.LocalDateTime.class, Date.class)
+                .securityContexts(Lists.newArrayList(securityContext()))
+                .securitySchemes(Lists.newArrayList(apiKey()))
+                .useDefaultResponseMessages(false);
+    }
     private ApiInfo getApiInfo() {
         return new ApiInfo(
-                "Inventory Service API",
+                "CUSTOMER API",
                 "App to demonstrate API Documentation",
                 "0.0.1-SNAPSHOT",
                 "Terms of Service",
                 new Contact("Parameswari",
-                        "",
+                        "https://blog.eswari.in",
                         "parameswaribala@gmail.com"),
-                "",
-                "",
+                "OSS License",
+                "https://blog.eswari.in",
                 Collections.emptyList());
     }
     
