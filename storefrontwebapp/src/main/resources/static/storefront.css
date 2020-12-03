@@ -17,6 +17,24 @@ nav .navbar-nav li a{
   color: orange !important;
   }
   
+  .table
+  {
+  
+    width:60%;
+    
+    margin:5%;
+	margin-left:10%;
+	background-color:#f1f1f1;	
+  }
+  
+  tr:nth-child(2n+1)
+  {
+  background-color: skyblue;
+  color:white;
+  
+  }
+  
+  
 .form
 {
 	width:30%;
@@ -40,7 +58,7 @@ nav .navbar-nav li a{
 .form fieldset input
 {
 	width:80%;
-	margin: 6%;
+	margin: 8%;
 	background-color: white;
 	
 }

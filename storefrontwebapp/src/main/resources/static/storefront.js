@@ -76,6 +76,59 @@ $(document).ready(function(e) {
 			    });
 			  
 			});
+		
+		$('.form').on('submit',function(e){
+			
+			$("#catbtn").prop("disabled", true);
+			
+			categoryName=$("#name").val();
+			productName=$("#productName").val();
+			dop=$("#dop").val();
+			cost=$("#cost").val();
+			
+			categoryObj={
+					"categoryId":0,
+					"name":categoryName,
+					"products":
+						[
+							{   "productId":0,
+								"productName":productName,
+								"dop":dop,
+								"cost":cost
+								}
+						]	
+					
+			}
+			
+			console.log(categoryObj);
+			
+			 // alert($(this).text());
+			  $.ajax({
+			        type: "POST",
+			        contentType: "application/json",
+			        url: "/categories",		
+			        data: JSON.stringify(categoryObj),
+			        dataType: 'json',			     
+			        cache: false,
+			        timeout: 600000,
+			        success: function (data) {
+
+			        		  console.log(data);   
+			        		  $("#catbtn").prop("enabled", true);
+			        		  window.location.href='/';
+			        
+			        },
+			        error: function (e) {
+
+			            
+			            alert(e.responseText) ;
+			           
+			        }
+			    });
+		})
+		
+		
+		
 	
 
 });
