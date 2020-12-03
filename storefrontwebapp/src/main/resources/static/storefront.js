@@ -1,9 +1,9 @@
 $(document).ready(function(e) {
 
 	
-		$(".dropdown-menu a").on('click', function(e) {
+		$(".dropdown-menu a:nth-child(3)").on('click', function(e) {
 			 
-			  alert($(this).text());
+			 // alert($(this).text());
 			  $.ajax({
 			        type: "GET",
 			        contentType: "application/json",
@@ -13,12 +13,49 @@ $(document).ready(function(e) {
 			        timeout: 600000,
 			        success: function (data) {
 
+			        	$("#categories tr").remove();
+			        	var $tr = $('<tr>');			        	
 			        	 $.each(data, function(i, item) {
-			         		
+			        			
 			        		console.log(item);
-			        	    });
+			        		 $tr = $('<tr>');
+			        		 $tr.append(
+				         	            $('<td>').text(item.categoryId)
+				         	        ); //	
+			        		 $tr.append(
+				         	            $('<td>').text(item.name)
+				         	        ); //        		 
+			        		         		 
+			        		 
+			        		 $('#categories').append($tr);
+			        		 
+			        		   $.each(item.products,function(i,product)
+			        			{
+			        			   console.log(product);
+					        		 $tr = $('<tr>');
+					        		 $tr.append(
+						         	            $('<td>').text(product.productId)
+						         	        ); //	
+					        		 $tr.append(
+						         	            $('<td>').text(product.productName)
+						         	        ); //       
+					        		 $tr.append(
+						         	            $('<td>').text(product.dop)
+						         	        ); //    
+					        		 $tr.append(
+						         	            $('<td>').text(product.cost)
+						         	        ); //    
+					        		         		 
+					        		 $('#categories').append($tr);
+			        			}	   
+			        		   )
+			        		 
+			        		  
+				             		 
+			        		 
+			        	    });		        	 
 			        	
-
+			        	
 			        },
 			        error: function (e) {
 
