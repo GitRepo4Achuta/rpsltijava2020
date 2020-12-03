@@ -1,0 +1,14 @@
+.navbar-custom {
+    background-color: #1c028a;
+     
+}
+.navbar-brand {
+	padding: 0px;
+	margin: 0px;
+	max-height: 50px;
+	color: white !important;
+}
+
+nav .navbar-nav li a{
+  color: orange !important;
+  }
