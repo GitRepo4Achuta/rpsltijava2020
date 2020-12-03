@@ -1,8 +1,18 @@
 $(document).ready(function(e) {
 
+		$('#categoriestableview').hide();
+		$('#categoriesformview').hide();
+		$(".dropdown-menu a:nth-child(1)").on('click', function(e) {
+			$('#categoriestableview').hide();
+			$('#categoriesformview').show()
+			//alert($(this).text());
+		});
 	
+
 		$(".dropdown-menu a:nth-child(3)").on('click', function(e) {
 			 
+			$('#categoriestableview').show();
+			$('#categoriesformview').hide();
 			 // alert($(this).text());
 			  $.ajax({
 			        type: "GET",
